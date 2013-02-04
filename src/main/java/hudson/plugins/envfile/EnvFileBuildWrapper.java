@@ -62,7 +62,7 @@ public class EnvFileBuildWrapper extends BuildWrapper{
 	public Environment setUp(AbstractBuild build, Launcher launcher,
 			BuildListener listener) throws IOException, InterruptedException {
 
-		logger.fine("Reading environment variables from file. ");
+        //logger.fine("Reading environment variables from file. ");
 
 		return new EnvironmentImpl(listener);
 	}
@@ -79,12 +79,12 @@ public class EnvFileBuildWrapper extends BuildWrapper{
 
         private Properties readPropsFromFile(String path, Map<String, String> currentMap)
         {
-            console(Messages.EnvFileBuildWrapper_Console_ReadingFile());
+            //console(Messages.EnvFileBuildWrapper_Console_ReadingFile());
 
             Properties props = new Properties();
             FileInputStream fis = null;
             String resolvedPath = Util.replaceMacro(path, currentMap);
-            console(Messages.EnvFileBuildWrapper_Console_PathToFile() + ": " + resolvedPath);
+            //console(Messages.EnvFileBuildWrapper_Console_PathToFile() + ": " + resolvedPath);
 
             try
             {
@@ -166,7 +166,7 @@ public class EnvFileBuildWrapper extends BuildWrapper{
                 for(String key : newFileEnvMap.keySet())
                 {
                     newFileEnvMap.put(key, tmpFileEnvMap.get(key));
-                    console(key + "=" + newFileEnvMap.get(key));
+                    // console(key + "=" + newFileEnvMap.get(key));
                 }
 
             }
